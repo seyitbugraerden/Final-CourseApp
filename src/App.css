@@ -1,2 +1,6 @@
-.center{text-align: center;}
-#root{max-width: calc(100% - 15%);margin: 0 auto;}
+body{background-color: black;}
+h2{text-align: center;color: white;padding-bottom: 20px;}
+input:focus{border: 0px !important;outline: 0px !important;}
+.ant-table-cell{max-width: 100px}
+#root{max-width: 1680px;margin: 0 auto;padding-top: 200px;}
+.react-datepicker__input-container input{padding: 8px 10px;border-radius: .5em;border: 0px;width: 250px;outline: 0;}
