@@ -1,0 +1,656 @@
+import { TreeSelect, Col, Row, Input, Button, Space } from "antd";
+import DatePicker from "react-datepicker";
+import { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
+import tr from 'date-fns/locale/tr';
+import "./App.css";
+function App() {
+  const [startDate, setStartDate] = useState(new Date());
+
+  const [value, setValue] = useState([]);
+  const [teacher, setTeacher] = useState([]);
+
+  const treeData = [
+    {
+      value: "11-EA",
+      title: "11-EA",
+      children: [
+        {
+          value: "OZAN ATA DURAK",
+          title: "OZAN ATA DURAK",
+        },
+        {
+          value: "HİRA BOYRAZ",
+          title: "HİRA BOYRAZ",
+        },
+        {
+          value: "İLAYDA SÜMEYRA ÖNDER",
+          title: "İLAYDA SÜMEYRA ÖNDER",
+        },
+        {
+          value: "EGE YELTEKİN",
+          title: "EGE YELTEKİN",
+        },
+        {
+          value: "SELVİNUR ÖZCAN",
+          title: "SELVİNUR ÖZCAN",
+        },
+        {
+          value: "DEFNE TANRIVERDİ",
+          title: "DEFNE TANRIVERDİ",
+        },
+      ],
+    },
+    {
+      value: "11-SAY-A",
+      title: "11-SAY-A",
+      children: [
+        {
+          value: "AYŞENUR ÜLGER",
+          title: "AYŞENUR ÜLGER",
+        },
+        {
+          value: "NESLİHAN ŞAHİN",
+          title: "NESLİHAN ŞAHİN",
+        },
+        {
+          value: "KUZEY TANRIVERDİ",
+          title: "KUZEY TANRIVERDİ",
+        },
+        {
+          value: "CAHİT EFE ŞSHİN",
+          title: "CAHİT EFE ŞSHİN",
+        },
+        {
+          value: "ŞEVVAL ECEM ÖZDEMİR",
+          title: "ŞEVVAL ECEM ÖZDEMİR",
+        },
+        {
+          value: "YİĞİT EFE SEYLAN",
+          title: "YİĞİT EFE SEYLAN",
+        },
+        {
+          value: "AHMET YAVUZHAN FINDIK",
+          title: "AHMET YAVUZHAN FINDIK",
+        },
+        {
+          value: "MEHLİKA REYYAN ÖZDEMİR",
+          title: "MEHLİKA REYYAN ÖZDEMİR",
+        },
+        {
+          value: "MUHAMMED YİĞİT AĞIR",
+          title: "MUHAMMED YİĞİT AĞIR",
+        },
+        {
+          value: "MUHAMMMED EREN BABAYİĞİT",
+          title: "MUHAMMMED EREN BABAYİĞİT",
+        },
+        {
+          value: "ECENAZ TAYFUN",
+          title: "ECENAZ TAYFUN",
+        },
+        {
+          value: "IRMAK AKSOY",
+          title: "IRMAK AKSOY",
+        },
+        {
+          value: "FİRDEVS NUR COŞAN",
+          title: "FİRDEVS NUR COŞAN",
+        },
+      ],
+    },
+    {
+      value: "11-SAY-B",
+      title: "11-SAY-B",
+      children: [
+        {
+          value: "ELİF ŞİMŞEK",
+          title: "ELİF ŞİMŞEK",
+        },
+        {
+          value: "TUĞBA DEFNE ÖZDEMİR",
+          title: "TUĞBA DEFNE ÖZDEMİR",
+        },
+        {
+          value: "MEHMET ASLAN",
+          title: "MEHMET ASLAN",
+        },
+        {
+          value: "MELİH KEREM ÜLGER",
+          title: "MELİH KEREM ÜLGER",
+        },
+        {
+          value: "CEYDA DEMİRÖS",
+          title: "CEYDA DEMİRÖS",
+        },
+        {
+          value: "ELİF SELEN ESER",
+          title: "ELİF SELEN ESER",
+        },
+        {
+          value: "SEFA ÇAĞRI ALACAHAN",
+          title: "SEFA ÇAĞRI ALACAHAN",
+        },
+        {
+          value: "YAĞMUR AZRA ÇELEBİ",
+          title: "YAĞMUR AZRA ÇELEBİ",
+        },
+        {
+          value: "HİLAL ÜLKER",
+          title: "HİLAL ÜLKER",
+        },
+        {
+          value: "ENES YEŞİLDAL",
+          title: "ENES YEŞİLDAL",
+        },
+        {
+          value: "ERBERK HİKMET",
+          title: "ERBERK HİKMET",
+        },
+        {
+          value: "MUSTAFA SALİHCAN DALKIRAN",
+          title: "MUSTAFA SALİHCAN DALKIRAN",
+        },
+      ],
+    },
+    {
+      value: "12-EA",
+      title: "12-EA",
+      children: [
+        {
+          value: "MUSTAFA SELİM KOÇ",
+          title: "MUSTAFA SELİM KOÇ",
+        },
+        {
+          value: "BEYZA NUROĞLU",
+          title: "BEYZA NUROĞLU",
+        },
+        {
+          value: "İBRAHİM ALP TAŞKIRAN",
+          title: "İBRAHİM ALP TAŞKIRAN",
+        },
+        {
+          value: "MEHLİKA KORKUTATA",
+          title: "MEHLİKA KORKUTATA",
+        },
+        {
+          value: "SİNAN GEZER",
+          title: "SİNAN GEZER",
+        },
+        {
+          value: "ELANUR ALTUNTAŞ",
+          title: "ELANUR ALTUNTAŞ",
+        },
+        {
+          value: "SEDA AKYÜREK",
+          title: "SEDA AKYÜREK",
+        },
+        {
+          value: "MUHAMMED GÜNEY",
+          title: "MUHAMMED GÜNEY",
+        },
+        {
+          value: "NAZ YILMAZ",
+          title: "NAZ YILMAZ",
+        },
+        {
+          value: "EBRAR TUKAT",
+          title: "EBRAR TUKAT",
+        },
+        {
+          value: "HATİCE KÜBRA DEMİRAL",
+          title: "HATİCE KÜBRA DEMİRAL",
+        },
+      ],
+    },
+    {
+      value: "12-SAY-A",
+      title: "12-SAY-A",
+      children: [
+        {
+          value: "ASYA SANEM SAYLAN",
+          title: "ASYA SANEM SAYLAN",
+        },
+        {
+          value: "SUDENAZ KILIÇ",
+          title: "SUDENAZ KILIÇ",
+        },
+        {
+          value: "CEMRE NAZ ÖZKAN",
+          title: "CEMRE NAZ ÖZKAN",
+        },
+        {
+          value: "ESMA NUR MERCAN",
+          title: "ESMA NUR MERCAN",
+        },
+        {
+          value: "HALİS SERKAN ÇAKMAKCI",
+          title: "HALİS SERKAN ÇAKMAKCI",
+        },
+        {
+          value: "RANA ATALAY",
+          title: "RANA ATALAY",
+        },
+        {
+          value: "FATMANUR ŞİRİN",
+          title: "FATMANUR ŞİRİN",
+        },
+      ],
+    },
+    {
+      value: "12-SAY-B",
+      title: "12-SAY-B",
+      children: [
+        {
+          value: "ADNAN EMRE TAŞKIRAN",
+          title: "ADNAN EMRE TAŞKIRAN",
+        },
+        {
+          value: "TUANA ÖZDEMİR",
+          title: "TUANA ÖZDEMİR",
+        },
+        {
+          value: "ÖMER MERT AYAZ",
+          title: "ÖMER MERT AYAZ",
+        },
+        {
+          value: "TAHSİN KOCAOĞLU",
+          title: "TAHSİN KOCAOĞLU",
+        },
+        {
+          value: "ECRİN YAĞMUR",
+          title: "ECRİN YAĞMUR",
+        },
+        {
+          value: "ZEYNEP SÜMEYYE AKGÜN",
+          title: "ZEYNEP SÜMEYYE AKGÜN",
+        },
+        {
+          value: "ELİF EBRAR AKSOY",
+          title: "ELİF EBRAR AKSOY",
+        },
+      ],
+    },
+    {
+      value: "MEZUN-SAY-A",
+      title: "MEZUN-SAY-A",
+      children: [
+        {
+          value: "MUHAMMED SALİH DURGUT",
+          title: "MUHAMMED SALİH DURGUT",
+        },
+        {
+          value: "EFE SARI",
+          title: "EFE SARI",
+        },
+        {
+          value: "SALİH EMİN ÜNAL",
+          title: "SALİH EMİN ÜNAL",
+        },
+        {
+          value: "ÖMER FARUK AVAL",
+          title: "ÖMER FARUK AVAL",
+        },
+        {
+          value: "ZEHRA MEKİK",
+          title: "ZEHRA MEKİK",
+        },
+        {
+          value: "SUDENUR KAMACI",
+          title: "SUDENUR KAMACI",
+        },
+        {
+          value: "İREM YAĞMUR ACAR",
+          title: "İREM YAĞMUR ACAR",
+        },
+        {
+          value: "SEDEN DOĞAN",
+          title: "SEDEN DOĞAN",
+        },
+        {
+          value: "MELİH ARIDURU",
+          title: "MELİH ARIDURU",
+        },
+        {
+          value: "RAVZA NUR ALPAGUT",
+          title: "RAVZA NUR ALPAGUT",
+        },
+        {
+          value: "BEKİR KERİM EKTİ",
+          title: "BEKİR KERİM EKTİ",
+        },
+        {
+          value: "BAYRAM BERAT AKAR",
+          title: "BAYRAM BERAT AKAR",
+        },
+        {
+          value: "METİN KILIÇ",
+          title: "METİN KILIÇ",
+        },
+        {
+          value: "ŞÜHEDA ILICA",
+          title: "ŞÜHEDA ILICA",
+        },
+        {
+          value: "BETÜL İLKİM KARTAL",
+          title: "BETÜL İLKİM KARTAL",
+        },
+      ],
+    },
+    {
+      value: "MEZUN-SAY-B",
+      title: "MEZUN-SAY-B",
+      children: [
+        {
+          value: "NİDANUR AKÇAN",
+          title: "NİDANUR AKÇAN",
+        },
+        {
+          value: "ŞİAR ABDURRAHMAN ÇELİK",
+          title: "ŞİAR ABDURRAHMAN ÇELİK",
+        },
+        {
+          value: "İREM BOZKURT",
+          title: "İREM BOZKURT",
+        },
+        {
+          value: "MUHAMMED YAHYA KUTOĞLU",
+          title: "MUHAMMED YAHYA KUTOĞLU",
+        },
+        {
+          value: "EREN GÖDEN",
+          title: "EREN GÖDEN",
+        },
+        {
+          value: "NAZLI SENA ÇELİKER",
+          title: "NAZLI SENA ÇELİKER",
+        },
+        {
+          value: "ELİF EYLÜL DURMAZ",
+          title: "ELİF EYLÜL DURMAZ",
+        },
+        {
+          value: "EMİRHAN KARAMAN",
+          title: "EMİRHAN KARAMAN",
+        },
+        {
+          value: "SİDELYA ŞİMAN",
+          title: "SİDELYA ŞİMAN",
+        },
+        {
+          value: "SUDE GÜL",
+          title: "SUDE GÜL",
+        },
+        {
+          value: "AHMET KARADÖL",
+          title: "AHMET KARADÖL",
+        },
+      ],
+    },
+    {
+      value: "MEZUN-EA-A",
+      title: "MEZUN-EA-A",
+      children: [
+        {
+          value: "CEYLİN KAPLAN",
+          title: "CEYLİN KAPLAN",
+        },
+        {
+          value: "AZRA KARABAYIR",
+          title: "AZRA KARABAYIR",
+        },
+        {
+          value: "ARZUM NUR ARSLAN",
+          title: "ARZUM NUR ARSLAN",
+        },
+        {
+          value: "ZEREN NURUAN",
+          title: "ZEREN NURUAN",
+        },
+        {
+          value: "GÖZDE KILIÇER",
+          title: "GÖZDE KILIÇER",
+        },
+        {
+          value: "AHMET KASIM",
+          title: "AHMET KASIM",
+        },
+        {
+          value: "MERVE AYDIN",
+          title: "MERVE AYDIN",
+        },
+        {
+          value: "RÜVEYDA İPEK TOPAÇ",
+          title: "RÜVEYDA İPEK TOPAÇ",
+        },
+        {
+          value: "ELİF BEYZA GÖKÇE",
+          title: "ELİF BEYZA GÖKÇE",
+        },
+        {
+          value: "DAMLA SÜRÜCÜOĞLU",
+          title: "DAMLA SÜRÜCÜOĞLU",
+        },
+        {
+          value: "GÜL AYANOĞLU",
+          title: "GÜL AYANOĞLU",
+        },
+      ],
+    },
+    {
+      value: "MEZUN-EA-B",
+      title: "MEZUN-EA-B",
+      children: [
+        {
+          value: "KAAN ARSLAN UZUNOĞLU",
+          title: "KAAN ARSLAN UZUNOĞLU",
+        },
+        {
+          value: "BELİNAY DEMİROĞLU",
+          title: "BELİNAY DEMİROĞLU",
+        },
+        {
+          value: "İSMAİL MEHMET MERT CİVAN",
+          title: "İSMAİL MEHMET MERT CİVAN",
+        },
+        {
+          value: "EFE HALİT DEMİRCİ",
+          title: "EFE HALİT DEMİRCİ",
+        },
+        {
+          value: "AHMET CAN MERCAN",
+          title: "AHMET CAN MERCAN",
+        },
+        {
+          value: "MUHAMMET SALİH AYDIN",
+          title: "MUHAMMET SALİH AYDIN",
+        },
+        {
+          value: "RANA BERİN IRMAK",
+          title: "RANA BERİN IRMAK",
+        },
+        {
+          value: "FEYZA NUR DEMİRTAŞ",
+          title: "FEYZA NUR DEMİRTAŞ",
+        },
+        {
+          value: "HAMDİ ARDA AKIN",
+          title: "HAMDİ ARDA AKIN",
+        },
+        {
+          value: "EFİL TUANA ŞAHİNDOKUYUCU",
+          title: "EFİL TUANA ŞAHİNDOKUYUCU",
+        },
+        {
+          value: "MELİSA KAPLAN",
+          title: "MELİSA KAPLAN",
+        },
+        {
+          value: "KAĞAN AKAR",
+          title: "KAĞAN AKAR",
+        },
+      ],
+    },
+  ];
+  const treeDataTeacher = [
+    {
+      value: "Edebiyat - Türkçe",
+      title: "Edebiyat - Türkçe",
+      children: [
+        {
+          value: "Edebiyat - Türkçe - HİCRAN ÇEVİK",
+          title: "Edebiyat - Türkçe - HİCRAN ÇEVİK",
+        },
+      ],
+    },
+    {
+      value: "Matematik",
+      title: "Matematik",
+      children: [
+        {
+          value: "Matematik - RAMAZAN KILIÇ",
+          title: "Matematik - RAMAZAN KILIÇ",
+        },
+        {
+          value: "Matematik - ALİ İHSAN ÖZKAN",
+          title: "Matematik - ALİ İHSAN ÖZKAN",
+        },
+        {
+          value: "Matematik - AHMET ÖZDEMİR",
+          title: "Matematik - AHMET ÖZDEMİR",
+        },
+      ],
+    },
+    {
+      value: "Geometri",
+      title: "Geometri",
+      children: [
+        {
+          value: "Geometri - HÜLYA SAYKAL",
+          title: "Geometri - HÜLYA SAYKAL",
+        },
+      ],
+    },
+    {
+      value: "Fizik",
+      title: "Fizik",
+      children: [
+        {
+          value: "Fizik - MUSTAFA ERDEN",
+          title: "Fizik - MUSTAFA ERDEN",
+        },
+        {
+          value: "Fizik - FATMA DOĞAN",
+          title: "Fizik - FATMA DOĞAN",
+        },
+      ],
+    },
+    {
+      value: "Kimya",
+      title: "Kimya",
+      children: [
+        {
+          value: "Kimya - KORAY SÜRÜCÜOĞLU",
+          title: "Kimya - KORAY SÜRÜCÜOĞLU",
+        },
+        {
+          value: "Kimya - ELİF ALTUNAY",
+          title: "Kimya - ELİF ALTUNAY",
+        },
+      ],
+    },
+    {
+      value: "Biyoloji",
+      title: "Biyoloji",
+      children: [
+        {
+          value: "Biyoloji - DAMLA BAYEZİT",
+          title: "Biyoloji - DAMLA BAYEZİT",
+        },
+      ],
+    },
+    {
+      value: "Tarih",
+      title: "Tarih",
+      children: [
+        {
+          value: "Tarih - KENAN İNAN",
+          title: "Tarih - KENAN İNAN",
+        },
+      ],
+    },
+    {
+      value: "Coğrafya",
+      title: "Coğrafya",
+      children: [
+        {
+          value: "Coğrafya - RIZA GÖKÇE",
+          title: "Coğrafya - RIZA GÖKÇE",
+        },
+      ],
+    },
+  ];
+  const onChange = (newValue) => {
+    setValue(newValue);
+    console.log(value);
+  };
+  return (
+    <>
+      <Row>
+        <Col className="center" span={6}>
+          <Space.Compact style={{ width: "85%" }}>
+            <TreeSelect
+              showSearch={true}
+              style={{ width: "100%", textAlign: "start" }}
+              value={value}
+              dropdownStyle={{ maxHeight: 600, overflow: "auto" }}
+              placeholder="Öğrenci Seçiniz"
+              maxTagTextLength={500}
+              allowClear
+              multiple
+              treeDefaultExpandAll
+              onChange={onChange}
+              treeData={treeData}
+            />
+          </Space.Compact>
+        </Col>
+        <Col className="center" span={6}>
+          <Space.Compact style={{ width: "85%" }}>
+            <TreeSelect
+              showSearch={true}
+              style={{ width: "100%", textAlign: "start" }}
+              value={teacher}
+              dropdownStyle={{ maxHeight: 600, overflow: "auto" }}
+              placeholder="Ders Seçiniz"
+              maxTagTextLength={500}
+              allowClear
+              multiple
+              treeDefaultExpandAll
+              onChange={(newValue) => {
+                setTeacher(newValue);
+              }}
+              treeData={treeDataTeacher}
+            />
+          </Space.Compact>
+        </Col>
+        <Col className="center" span={6}>
+        <DatePicker
+    selected={startDate}
+    onChange={(date) => setStartDate(date)}
+    dateFormat=" dd / MM / yyyy HH:mm"
+    showTimeInput
+    locale={tr}
+/>
+        </Col>
+        <Col className="center" span={6}>
+          <Space.Compact style={{ width: "80%" }}>
+            <Input defaultValue="Ders Konusu Giriniz" />
+            <Button type="primary">Kaydet</Button>
+          </Space.Compact>
+        </Col>
+      </Row>
+    </>
+  );
+}
+
+export default App;
