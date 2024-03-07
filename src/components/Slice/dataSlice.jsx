@@ -1,5 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import { message } from "antd";
+import { nanoid } from "nanoid";
 
 const initialState = {
   isValid: false,
@@ -618,9 +619,24 @@ const dataSlice = createSlice({
         message.error("Eksik Veri Girdiniz");
       } else {
         message.success("Tablo Oluşturuldu");
+        const newElement = {
+          ...state.selectedElements,
+          key: nanoid(),
+        };
         state.isValid = true;
-        state.savedElement.push(state.selectedElements);
+        state.savedElement.push(newElement);
+        state.selectedElements = {
+          students: [],
+          teachers: [],
+          date: "",
+          subject: "",
+        };
       }
+    },
+    deleteElement: (state, action) => {
+      state.savedElement = state.savedElement.filter(
+        (item) => item.key !== action.payload
+      );
     },
   },
 });
@@ -631,5 +647,6 @@ export const {
   handleDate,
   handleSubject,
   handleSubmit,
+  deleteElement,
 } = dataSlice.actions;
 export default dataSlice.reducer;

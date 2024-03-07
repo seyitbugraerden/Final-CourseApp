@@ -14,7 +14,7 @@ import tr from "date-fns/locale/tr";
 function InputArea() {
   const students = useSelector((store) => store.data.students);
   const teachers = useSelector((store) => store.data.teachers);
-  const savedElement = useSelector((store) => store.data.savedElement);
+  const selectedElements = useSelector((store) => store.data.selectedElements);
   const dispatch = useDispatch();
   return (
     <Row>
@@ -29,6 +29,7 @@ function InputArea() {
             allowClear
             multiple
             treeData={students}
+            value={selectedElements.students} 
             onChange={(newValue) => {
               dispatch(handleStudents(newValue));
             }}
@@ -46,6 +47,7 @@ function InputArea() {
             allowClear
             multiple
             treeData={teachers}
+            value={selectedElements.teachers} 
             onChange={(newValue) => {
               dispatch(handleTeachers(newValue));
             }}
@@ -69,6 +71,8 @@ function InputArea() {
             dateFormat=" dd / MM / yyyy HH:mm"
             showTimeInput
             locale={tr}
+            value={selectedElements.date}
+            placeholderText="Tarih Seçiniz"
           />
         </Space.Compact>
       </Col>
@@ -79,6 +83,7 @@ function InputArea() {
             onChange={(e) => {
               dispatch(handleSubject(e.target.value));
             }}
+            value={selectedElements.subject}
           />
           <Button
             type="primary"
