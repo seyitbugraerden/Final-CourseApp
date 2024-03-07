@@ -500,6 +500,7 @@ const initialState = {
     {
       value: "Edebiyat - Türkçe",
       title: "Edebiyat - Türkçe",
+      selectable : false,
       children: [
         {
           value: "Edebiyat - Türkçe - HİCRAN ÇEVİK",
@@ -510,6 +511,7 @@ const initialState = {
     {
       value: "Matematik",
       title: "Matematik",
+      selectable : false,
       children: [
         {
           value: "Matematik - RAMAZAN KILIÇ",
@@ -528,6 +530,7 @@ const initialState = {
     {
       value: "Geometri",
       title: "Geometri",
+      selectable : false,
       children: [
         {
           value: "Geometri - HÜLYA SAYKAL",
@@ -538,6 +541,7 @@ const initialState = {
     {
       value: "Fizik",
       title: "Fizik",
+      selectable : false,
       children: [
         {
           value: "Fizik - MUSTAFA ERDEN",
@@ -552,6 +556,7 @@ const initialState = {
     {
       value: "Kimya",
       title: "Kimya",
+      selectable : false,
       children: [
         {
           value: "Kimya - KORAY SÜRÜCÜOĞLU",
@@ -566,6 +571,7 @@ const initialState = {
     {
       value: "Biyoloji",
       title: "Biyoloji",
+      selectable : false,
       children: [
         {
           value: "Biyoloji - DAMLA BAYEZİT",
@@ -576,6 +582,7 @@ const initialState = {
     {
       value: "Tarih",
       title: "Tarih",
+      selectable : false,
       children: [
         {
           value: "Tarih - KENAN İNAN",
@@ -586,6 +593,7 @@ const initialState = {
     {
       value: "Coğrafya",
       title: "Coğrafya",
+      selectable : false,
       children: [
         {
           value: "Coğrafya - RIZA GÖKÇE",
