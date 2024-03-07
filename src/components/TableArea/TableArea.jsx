@@ -1,11 +1,9 @@
 import { Table } from "antd";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { deleteElement } from "../Slice/dataSlice";
-
 function TableArea() {
   const dataSource = useSelector((store) => store.data.savedElement);
-  const dispatch = useDispatch()
   const columns = [
     {
       title: "Öğrenci",
@@ -28,10 +26,18 @@ function TableArea() {
       key: "address",
     },
     {
-      title: 'Aksiyon',
-      dataIndex: 'Aksiyon',
-      key: 'Aksiyon',
-      render: (text,record) => <a onClick={()=>{dispatch(deleteElement(record.key))}}>Sil</a>,
+      title: "Aksiyon",
+      dataIndex: "Aksiyon",
+      key: "Aksiyon",
+      render: (text, record) => (
+        <a
+          onClick={() => {
+            dispatch(deleteElement(record.id));
+          }}
+        >
+          Sil
+        </a>
+      ),
     },
   ];
   return (
