@@ -8,6 +8,7 @@ const initialState = {
     {
       value: "11-EA",
       title: "11-EA",
+      selectable : false,
       children: [
         {
           value: "OZAN ATA DURAK",
@@ -38,6 +39,7 @@ const initialState = {
     {
       value: "11-SAY-A",
       title: "11-SAY-A",
+      selectable : false,
       children: [
         {
           value: "AYŞENUR ÜLGER",
@@ -96,6 +98,7 @@ const initialState = {
     {
       value: "11-SAY-B",
       title: "11-SAY-B",
+      selectable : false,
       children: [
         {
           value: "ELİF ŞİMŞEK",
@@ -150,6 +153,7 @@ const initialState = {
     {
       value: "12-EA",
       title: "12-EA",
+      selectable : false,
       children: [
         {
           value: "MUSTAFA SELİM KOÇ",
@@ -200,6 +204,7 @@ const initialState = {
     {
       value: "12-SAY-A",
       title: "12-SAY-A",
+      selectable : false,
       children: [
         {
           value: "ASYA SANEM SAYLAN",
@@ -234,6 +239,7 @@ const initialState = {
     {
       value: "12-SAY-B",
       title: "12-SAY-B",
+      selectable : false,
       children: [
         {
           value: "ADNAN EMRE TAŞKIRAN",
@@ -268,6 +274,7 @@ const initialState = {
     {
       value: "MEZUN-SAY-A",
       title: "MEZUN-SAY-A",
+      selectable : false,
       children: [
         {
           value: "MUHAMMED SALİH DURGUT",
@@ -334,6 +341,7 @@ const initialState = {
     {
       value: "MEZUN-SAY-B",
       title: "MEZUN-SAY-B",
+      selectable : false,
       children: [
         {
           value: "NİDANUR AKÇAN",
@@ -384,6 +392,7 @@ const initialState = {
     {
       value: "MEZUN-EA-A",
       title: "MEZUN-EA-A",
+      selectable : false,
       children: [
         {
           value: "CEYLİN KAPLAN",
@@ -434,6 +443,7 @@ const initialState = {
     {
       value: "MEZUN-EA-B",
       title: "MEZUN-EA-B",
+      selectable : false,
       children: [
         {
           value: "KAAN ARSLAN UZUNOĞLU",
