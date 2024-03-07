@@ -18,7 +18,7 @@ function InputArea() {
   const dispatch = useDispatch();
   return (
     <Row>
-      <Col md={6} xs={24}>
+      <Col lg={6} xs={24}>
         <Space.Compact style={{ width: "85%" }}>
           <TreeSelect
             showSearch={true}
@@ -35,7 +35,7 @@ function InputArea() {
           />
         </Space.Compact>
       </Col>
-      <Col md={6} xs={24}>
+      <Col lg={6} xs={24}>
         <Space.Compact style={{ width: "85%" }}>
           <TreeSelect
             showSearch={true}
@@ -52,7 +52,7 @@ function InputArea() {
           />
         </Space.Compact>
       </Col>
-      <Col md={6} xs={24}>
+      <Col lg={5} xs={24}>
         <Space.Compact style={{ width: "100%" }}>
           <DatePicker
             selected={new Date()}
@@ -72,7 +72,7 @@ function InputArea() {
           />
         </Space.Compact>
       </Col>
-      <Col md={6} xs={24}>
+      <Col lg={6} xs={24}>
         <Space.Compact style={{ width: "80%" }}>
           <Input
             placeholder="Ders Konusu Giriniz"

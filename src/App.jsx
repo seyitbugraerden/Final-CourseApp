@@ -1,12 +1,14 @@
+import { useSelector } from "react-redux";
 import InputArea from "./components/InputArea/InputArea";
 import TableArea from "./components/TableArea/TableArea";
 
 function App() {
+  const savedElement = useSelector((store) => store.data.savedElement);
   return (
     <>
-      <h2>Öğrenci Kurs Atama Programı</h2>
+      <h2>ÖĞRENCİ KURS ATAMA PROGRAMI</h2>
       <InputArea />
-      <TableArea />
+      {savedElement.length > 0 && <TableArea />}
     </>
   );
 }

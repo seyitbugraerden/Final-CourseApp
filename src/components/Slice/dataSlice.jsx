@@ -1,6 +1,8 @@
 import { createSlice, current } from "@reduxjs/toolkit";
+import { message } from "antd";
 
 const initialState = {
+  isValid: false,
   students: [
     {
       value: "11-EA",
@@ -607,7 +609,18 @@ const dataSlice = createSlice({
       state.selectedElements.subject = action.payload;
     },
     handleSubmit: (state) => {
-      state.savedElement.push(state.selectedElements);
+      if (
+        state.selectedElements.students.length === 0 ||
+        state.selectedElements.teachers.length === 0 ||
+        state.selectedElements.date === "" ||
+        state.selectedElements.subject === ""
+      ) {
+        message.error("Eksik Veri Girdiniz");
+      } else {
+        message.success("Tablo Oluşturuldu");
+        state.isValid = true;
+        state.savedElement.push(state.selectedElements);
+      }
     },
   },
 });

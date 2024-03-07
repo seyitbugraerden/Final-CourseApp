@@ -33,7 +33,7 @@ function TableArea() {
         dataSource={dataSource}
         columns={columns}
         style={{
-          marginTop: "200px",
+          marginTop: "100px",
         }}
       />
     </>
