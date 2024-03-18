@@ -8,7 +8,7 @@ const initialState = {
     {
       value: "11-EA",
       title: "11-EA",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "OZAN ATA DURAK",
@@ -39,7 +39,7 @@ const initialState = {
     {
       value: "11-SAY-A",
       title: "11-SAY-A",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "AYŞENUR ÜLGER",
@@ -98,7 +98,7 @@ const initialState = {
     {
       value: "11-SAY-B",
       title: "11-SAY-B",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "ELİF ŞİMŞEK",
@@ -153,7 +153,7 @@ const initialState = {
     {
       value: "12-EA",
       title: "12-EA",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "MUSTAFA SELİM KOÇ",
@@ -204,7 +204,7 @@ const initialState = {
     {
       value: "12-SAY-A",
       title: "12-SAY-A",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "ASYA SANEM SAYLAN",
@@ -239,7 +239,7 @@ const initialState = {
     {
       value: "12-SAY-B",
       title: "12-SAY-B",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "ADNAN EMRE TAŞKIRAN",
@@ -274,7 +274,7 @@ const initialState = {
     {
       value: "MEZUN-SAY-A",
       title: "MEZUN-SAY-A",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "MUHAMMED SALİH DURGUT",
@@ -341,7 +341,7 @@ const initialState = {
     {
       value: "MEZUN-SAY-B",
       title: "MEZUN-SAY-B",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "NİDANUR AKÇAN",
@@ -392,7 +392,7 @@ const initialState = {
     {
       value: "MEZUN-EA-A",
       title: "MEZUN-EA-A",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "CEYLİN KAPLAN",
@@ -443,7 +443,7 @@ const initialState = {
     {
       value: "MEZUN-EA-B",
       title: "MEZUN-EA-B",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "KAAN ARSLAN UZUNOĞLU",
@@ -500,7 +500,7 @@ const initialState = {
     {
       value: "Edebiyat - Türkçe",
       title: "Edebiyat - Türkçe",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Edebiyat - Türkçe - HİCRAN ÇEVİK",
@@ -511,7 +511,7 @@ const initialState = {
     {
       value: "Matematik",
       title: "Matematik",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Matematik - RAMAZAN KILIÇ",
@@ -530,7 +530,7 @@ const initialState = {
     {
       value: "Geometri",
       title: "Geometri",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Geometri - HÜLYA SAYKAL",
@@ -541,7 +541,7 @@ const initialState = {
     {
       value: "Fizik",
       title: "Fizik",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Fizik - MUSTAFA ERDEN",
@@ -556,7 +556,7 @@ const initialState = {
     {
       value: "Kimya",
       title: "Kimya",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Kimya - KORAY SÜRÜCÜOĞLU",
@@ -571,7 +571,7 @@ const initialState = {
     {
       value: "Biyoloji",
       title: "Biyoloji",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Biyoloji - DAMLA BAYEZİT",
@@ -582,7 +582,7 @@ const initialState = {
     {
       value: "Tarih",
       title: "Tarih",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Tarih - KENAN İNAN",
@@ -593,7 +593,7 @@ const initialState = {
     {
       value: "Coğrafya",
       title: "Coğrafya",
-      selectable : false,
+      selectable: false,
       children: [
         {
           value: "Coğrafya - RIZA GÖKÇE",
@@ -606,6 +606,7 @@ const initialState = {
     students: [],
     teachers: [],
     date: "",
+    time: "",
     subject: "",
   },
   savedElement: [],
@@ -624,6 +625,9 @@ const dataSlice = createSlice({
     handleDate: (state, action) => {
       state.selectedElements.date = action.payload;
     },
+    handleTime: (state, action) => {
+      state.selectedElements.time = action.payload;
+    },
     handleSubject: (state, action) => {
       state.selectedElements.subject = action.payload;
     },
@@ -632,6 +636,7 @@ const dataSlice = createSlice({
         state.selectedElements.students.length === 0 ||
         state.selectedElements.teachers.length === 0 ||
         state.selectedElements.date === "" ||
+        state.selectedElements.time === "" ||
         state.selectedElements.subject === ""
       ) {
         message.error("Eksik Veri Girdiniz");
@@ -648,6 +653,7 @@ const dataSlice = createSlice({
           teachers: [],
           date: "",
           subject: "",
+          time: "",
         };
       }
     },
@@ -666,5 +672,6 @@ export const {
   handleSubject,
   handleSubmit,
   deleteElement,
+  handleTime,
 } = dataSlice.actions;
 export default dataSlice.reducer;

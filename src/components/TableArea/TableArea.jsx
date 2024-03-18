@@ -1,19 +1,26 @@
 import React from "react";
 import { Button, Table } from "antd";
 import { useSelector } from "react-redux";
-import { PDFDownloadLink, Page, Text, View, Document, StyleSheet, Font } from "@react-pdf/renderer";
+import {
+  PDFDownloadLink,
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  Font,
+} from "@react-pdf/renderer";
 
 Font.register({
   family: "Roboto",
-  src:
-    "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf"
+  src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf",
 });
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: "row",
     backgroundColor: "#ececea",
-    fontFamily: "Roboto"
+    fontFamily: "Roboto",
   },
   section: {
     margin: 10,
@@ -28,16 +35,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderBottomWidth: 1,
     borderBottomColor: "#aaaaaa",
-    display:'flex',
+    display: "flex",
     alignItems: "start",
-    justifyContent: 'center',
+    justifyContent: "center",
     textAlign: "start",
     paddingVertical: 5,
   },
   cell: {
     flex: 1,
-    marginRight : 20,
-    fontSize: '7px',
+    marginRight: 20,
+    fontSize: "7px",
     maxWidth: "25%",
     wordWrap: "break-word",
     overflow: "hidden",
@@ -62,10 +69,14 @@ function PDFTable({ dataSource, columns }) {
             ))}
           </View>
           {dataSource.map((data, index) => (
-            <View style={[styles.row, index % 2 === 0 && styles.evenRow]} key={index}>
+            <View
+              style={[styles.row, index % 2 === 0 && styles.evenRow]}
+              key={index}
+            >
               {columns.map((column, colIndex) => (
                 <Text style={styles.cell} key={colIndex}>
-                  {column.dataIndex === "students" || column.dataIndex === "teachers"
+                  {column.dataIndex === "students" ||
+                  column.dataIndex === "teachers"
                     ? data[column.dataIndex].join(" || ")
                     : data[column.dataIndex]}
                 </Text>
@@ -78,8 +89,6 @@ function PDFTable({ dataSource, columns }) {
   );
 }
 
-
-
 function TableArea() {
   const dataSource = useSelector((store) => store.data.savedElement);
   const columns = [
@@ -88,7 +97,6 @@ function TableArea() {
       dataIndex: "students",
       key: "name",
       render: (students) => students.join(" || "),
-
     },
     {
       title: "Seçilen Ders",
@@ -106,6 +114,11 @@ function TableArea() {
       dataIndex: "date",
       key: "date",
     },
+    {
+      title: "Saat",
+      dataIndex: "time",
+      key: "time",
+    },
   ];
 
   return (
@@ -117,8 +130,17 @@ function TableArea() {
           marginTop: "100px",
         }}
       />
-      <PDFDownloadLink document={<PDFTable dataSource={dataSource} columns={columns} />} fileName="tablo.pdf">
-        {({ loading }) => (loading ? "İndiriliyor..." : <Button type="primary">PDF Olarak İndir</Button>)}
+      <PDFDownloadLink
+        document={<PDFTable dataSource={dataSource} columns={columns} />}
+        fileName="tablo.pdf"
+      >
+        {({ loading }) =>
+          loading ? (
+            "İndiriliyor..."
+          ) : (
+            <Button type="primary">PDF Olarak İndir</Button>
+          )
+        }
       </PDFDownloadLink>
     </>
   );
