@@ -58,6 +58,7 @@ function InputArea() {
         <Space.Compact style={{ width: "100%" }}>
           <DatePicker
             showTimeSelect
+            timeIntervals={5}
             locale={tr}
             value={selectedElements.date}
             dateFormat="MMMM d, yyyy h:mm"
