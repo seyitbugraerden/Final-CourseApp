@@ -1,5 +1,6 @@
 import { Button, Col, Input, Row, Space, TreeSelect } from "antd";
 import { useDispatch, useSelector } from "react-redux";
+import DatePicker from "react-datepicker";
 import {
   handleDate,
   handleStudents,
@@ -7,15 +8,14 @@ import {
   handleSubmit,
   handleTeachers,
 } from "../Slice/dataSlice";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import tr from "date-fns/locale/tr";
-
 function InputArea() {
   const students = useSelector((store) => store.data.students);
   const teachers = useSelector((store) => store.data.teachers);
   const selectedElements = useSelector((store) => store.data.selectedElements);
   const dispatch = useDispatch();
+
   return (
     <Row>
       <Col lg={6} xs={24}>
@@ -29,7 +29,7 @@ function InputArea() {
             allowClear
             multiple
             treeData={students}
-            value={selectedElements.students} 
+            value={selectedElements.students}
             onChange={(newValue) => {
               dispatch(handleStudents(newValue));
             }}
@@ -47,7 +47,7 @@ function InputArea() {
             allowClear
             multiple
             treeData={teachers}
-            value={selectedElements.teachers} 
+            value={selectedElements.teachers}
             onChange={(newValue) => {
               dispatch(handleTeachers(newValue));
             }}
@@ -57,7 +57,10 @@ function InputArea() {
       <Col lg={5} xs={24}>
         <Space.Compact style={{ width: "100%" }}>
           <DatePicker
-            selected={new Date()}
+            showTimeSelect
+            locale={tr}
+            value={selectedElements.date}
+            dateFormat="MMMM d, yyyy h:mm"
             onChange={(date) => {
               const formattedDate = date.toLocaleString("tr", {
                 weekday: "long",
@@ -68,10 +71,6 @@ function InputArea() {
               });
               dispatch(handleDate(formattedDate));
             }}
-            dateFormat=" dd / MM / yyyy HH:mm"
-            showTimeInput
-            locale={tr}
-            value={selectedElements.date}
             placeholderText="Tarih Seçiniz"
           />
         </Space.Compact>
